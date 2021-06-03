@@ -103,6 +103,19 @@ public class DynamicArrayTest extends Assertions {
         assertEquals(29, dynamicArray.capacity());
         assertThrows(ArithmeticException.class, () -> dynamicArray.insert(-1, 5));
     }
+    @Test
+    public void TestAdd(){
+        DynamicArray dynamicArray = new DynamicArray();
+        dynamicArray.resize(4);
+        dynamicArray.set(0, 5);
+        dynamicArray.set(2, 5);
+        dynamicArray.add(3);
+        dynamicArray.add(4);
+        assertEquals(3, dynamicArray.get(3));
+        assertEquals(4, dynamicArray.get(4));
+        assertEquals(8, dynamicArray.size());
+        assertNull(dynamicArray.get(7));
+    }
 
 
 }
