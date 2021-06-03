@@ -14,5 +14,8 @@ public class DynamicArray <T> {
     public int size(){
         return array.length;
     }
-    
+    public T get(int index){
+        if(size() <=index | index < 0){throwException();}
+        return array[index];
+    }
 }
