@@ -51,6 +51,7 @@ public class DynamicArray <T> {
                 System.arraycopy(newArray, 0, array, 0, Math.min(newSize, newArray.length));
         }
     }
+    
 
     public int findFirst(T value){
         for(int i = 0; i < capacity(); i++){
