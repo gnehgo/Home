@@ -47,12 +47,11 @@ public class DynamicArray <T> {
         T[] newArray = array.clone();
         array = (T[])new Object[newSize];
         for(int i = 0; i < newSize; i++) {
-            for (i = 0; i < Math.min(newSize, newArray.length); i++) {
-                array[i] = newArray[i];
-            }
+            if (Math.min(newSize, newArray.length) >= 0)
+                System.arraycopy(newArray, 0, array, 0, Math.min(newSize, newArray.length));
         }
     }
-    
+
     public int findFirst(T value){
         for(int i = 0; i < capacity(); i++){
             if(array[i] == value){
@@ -82,26 +81,29 @@ public class DynamicArray <T> {
     public void insert(int index, T value){
         if(index < 0){throwException();}
         int number = -1;
-        if(index >= capacity()){resize(index + 1);}
-        if(array[index] == null){
-            array[index] = value;
+        if(index >= capacity()){
+            if(index >= capacity()){
+            resize(Math.max(capacity() * DEFAULT_RATE + 1, index + 1));
         }
-        else{
+            if (array[index] != null) {
             int oldSize = capacity();
-            for(int i = 0; i < capacity(); i++){
-                if(array[i] != null){
+                for (int i = 0; i < capacity(); i++) {
+                    if (array[i] != null) {
                     number = i;
                 }
             }
             if (number == size() - 1) {
                 resize(size() * DEFAULT_RATE + 1);
             }
-            for (int i = oldSize; i > index; i--){
-                array[i] = array[i - 1];
+                if (oldSize - index >= 0) System.arraycopy(array, index, array, index + 1, oldSize - index);
             }
             array[index] = value;
         }
     }
-
+    public void delete(int index){
+        if(capacity() <= index | index < 0){throwException();}
+        array[index] = null;
+        if (capacity() - 1 - index >= 0) System.arraycopy(array, index + 1, array, index, capacity() - 1 - index);
+    }
 
 }
