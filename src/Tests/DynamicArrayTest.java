@@ -16,7 +16,7 @@ public class DynamicArrayTest extends Assertions {
     public void TestResizeAndSize (){
         DynamicArray dynamicArray = new DynamicArray();
         dynamicArray.resize(1);
-        assertEquals(1, dynamicArray.size());
+        assertEquals(1, dynamicArray.capacity());
     }
 
     @Test
@@ -42,12 +42,12 @@ public class DynamicArrayTest extends Assertions {
     @Test
     public void TestWith(){
         DynamicArray dynamicArray = new DynamicArray(5);
-        assertEquals(5, dynamicArray.size());
+        assertEquals(5, dynamicArray.capacity());
     }
     @Test
         public void TestWithout() {
         DynamicArray dynamicArray = new DynamicArray(-5);
-        assertEquals(10, dynamicArray.size());
+        assertEquals(10, dynamicArray.capacity());
     }
     @Test
     public void TestFindFirstF(){
@@ -86,6 +86,24 @@ public class DynamicArrayTest extends Assertions {
         dynamicArray.set(2, 5);
         assertEquals(-1, dynamicArray.findFirst(3));
     }
+    @Test
+    public void TestInsert(){
+        DynamicArray dynamicArray = new DynamicArray();
+        dynamicArray.resize(3);
+        dynamicArray.set(0, 5);
+        dynamicArray.set(2, 5);
+        assertNull(dynamicArray.get(1));
+        dynamicArray.insert(1, 5);
+        dynamicArray.insert(2,28);
+        dynamicArray.insert(28,999999);
+        assertEquals(5, dynamicArray.get(1));
+        assertEquals(28, dynamicArray.get(2));
+        assertEquals(5, dynamicArray.get(3));
+        assertEquals(999999, dynamicArray.get(28));
+        assertEquals(29, dynamicArray.capacity());
+        assertThrows(ArithmeticException.class, () -> dynamicArray.insert(-1, 5));
+    }
+
 
 }
 
