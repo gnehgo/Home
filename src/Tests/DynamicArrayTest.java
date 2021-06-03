@@ -9,7 +9,7 @@ public class DynamicArrayTest extends Assertions {
     public void TestSet (){
         DynamicArray dynamicArray = new DynamicArray();
         assertThrows(ArithmeticException.class, () -> dynamicArray.set(-1, 5));
-        assertThrows(ArithmeticException.class, () -> dynamicArray.set(100, 18));
+        assertThrows(ArithmeticException.class, () -> dynamicArray.set(10, 18));
     }
 
     @Test
@@ -37,5 +37,20 @@ public class DynamicArrayTest extends Assertions {
     public void TestGet(){
         DynamicArray dynamicArray = new DynamicArray();
         assertThrows(ArithmeticException.class, () -> dynamicArray.resize(-1));
+        assertThrows(ArithmeticException.class, () -> dynamicArray.get(10));
     }
+    @Test
+    public void TestWith(){
+        DynamicArray dynamicArray = new DynamicArray(5);
+        assertEquals(5, dynamicArray.size());
+    }
+    @Test
+        public void TestWithout() {
+        DynamicArray dynamicArray = new DynamicArray(-5);
+        assertEquals(10, dynamicArray.size());
+    }
+    
+
 }
+
+
