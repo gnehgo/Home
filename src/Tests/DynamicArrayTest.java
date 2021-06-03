@@ -11,11 +11,19 @@ public class DynamicArrayTest extends Assertions {
         assertThrows(ArithmeticException.class, () -> dynamicArray.set(-1, 5));
         assertThrows(ArithmeticException.class, () -> dynamicArray.set(100, 18));
     }
-    
+
     @Test
     public void TestResizeAndSize (){
         DynamicArray dynamicArray = new DynamicArray();
         dynamicArray.resize(1);
         assertEquals(1, dynamicArray.size());
     }
+    @Test
+    public void TestSetAndGet(){
+        DynamicArray dynamicArray = new DynamicArray();
+        dynamicArray.resize(1);
+        dynamicArray.set(0, 5);
+        assertEquals(5, dynamicArray.get(0));
+    }
+    
 }
