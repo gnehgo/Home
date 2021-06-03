@@ -6,6 +6,7 @@ public class DynamicArray <T> {
 
     }
     private final int DEFAULT_SIZE = 10;
+    private final int DEFAULT_RATE = 2;
     private T[] array;
     public DynamicArray(){
         array = (T[])new Object[DEFAULT_SIZE];
@@ -46,7 +47,7 @@ public class DynamicArray <T> {
         T[] newArray = array.clone();
         array = (T[])new Object[newSize];
         for(int i = 0; i < newSize; i++) {
-            for (int i = 0; i < Math.min(newSize, newArray.length); i++) {
+            for (i = 0; i < Math.min(newSize, newArray.length); i++) {
                 array[i] = newArray[i];
             }
         }
@@ -67,6 +68,13 @@ public class DynamicArray <T> {
             }
         }
         return -1;
+    }
+    public void add(T value){
+        int count = 0;
+        if (size() >= capacity()) {
+            resize(capacity() * DEFAULT_RATE + 1);
+        }
+        set(size(), value);
     }
 
 }
