@@ -14,8 +14,14 @@ public class DynamicArray <T> {
     public int size(){
         return array.length;
     }
+    
     public T get(int index){
         if(size() <=index | index < 0){throwException();}
         return array[index];
+    }
+
+    public void set(int index,T value){
+        if(size() <=index | index < 0){throwException();}
+        array[index] = value;
     }
 }
