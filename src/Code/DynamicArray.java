@@ -1,6 +1,5 @@
 package Code;
 
-public class DynamicArray {
 public class DynamicArray <T> {
     public void throwException(){
     throw new ArithmeticException("Зачем ломаешь");
@@ -12,4 +11,8 @@ public class DynamicArray <T> {
     public DynamicArray(){
         array = (T[])new Object[DEFAULT_SIZE];
     }
+    public int size(){
+        return array.length;
+    }
+    
 }
