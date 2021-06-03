@@ -14,7 +14,7 @@ public class DynamicArray <T> {
     public int size(){
         return array.length;
     }
-    
+
     public T get(int index){
         if(size() <=index | index < 0){throwException();}
         return array[index];
@@ -24,4 +24,14 @@ public class DynamicArray <T> {
         if(size() <=index | index < 0){throwException();}
         array[index] = value;
     }
+
+    public void resize(int newSize){
+        if (newSize < 0){throwException();}
+        T[] newArray = array.clone();
+        array = (T[])new Object[newSize];
+        for(int i = 0; i < newSize; i++){
+            array[i] = newArray[i];
+        }
+    }
+    
 }
