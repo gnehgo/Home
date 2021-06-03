@@ -11,17 +11,27 @@ public class DynamicArray <T> {
     public DynamicArray(){
         array = (T[])new Object[DEFAULT_SIZE];
     }
+
     public int size(){
+        int number = 0;
+        for(int i = 0; i < capacity(); i++){
+            if(array[i] != null){
+                number = i;
+            }}
+        return number + 1;
+    }
+
+    public int capacity(){
         return array.length;
     }
 
     public T get(int index){
-        if(size() <=index | index < 0){throwException();}
+        if(capacity() <=index | index < 0){throwException();}
         return array[index];
     }
 
     public void set(int index,T value){
-        if(size() <=index | index < 0){throwException();}
+        if(capacity() <=index | index < 0){throwException();}
         array[index] = value;
     }
 
@@ -34,4 +44,6 @@ public class DynamicArray <T> {
         }
     }
     
+
+
 }
