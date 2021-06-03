@@ -52,6 +52,7 @@ public class DynamicArray <T> {
             }
         }
     }
+    
     public int findFirst(T value){
         for(int i = 0; i < capacity(); i++){
             if(array[i] == value){
@@ -69,6 +70,7 @@ public class DynamicArray <T> {
         }
         return -1;
     }
+
     public void add(T value){
         int count = 0;
         if (size() >= capacity()) {
@@ -76,5 +78,30 @@ public class DynamicArray <T> {
         }
         set(size(), value);
     }
+
+    public void insert(int index, T value){
+        if(index < 0){throwException();}
+        int number = -1;
+        if(index >= capacity()){resize(index + 1);}
+        if(array[index] == null){
+            array[index] = value;
+        }
+        else{
+            int oldSize = capacity();
+            for(int i = 0; i < capacity(); i++){
+                if(array[i] != null){
+                    number = i;
+                }
+            }
+            if (number == size() - 1) {
+                resize(size() * DEFAULT_RATE + 1);
+            }
+            for (int i = oldSize; i > index; i--){
+                array[i] = array[i - 1];
+            }
+            array[index] = value;
+        }
+    }
+
 
 }
