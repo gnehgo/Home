@@ -7,9 +7,15 @@ public class DynamicArray <T> {
     }
     private final int DEFAULT_SIZE = 10;
     private T[] array;
-
     public DynamicArray(){
         array = (T[])new Object[DEFAULT_SIZE];
+    }
+
+    public DynamicArray(int firstSize){
+        if (firstSize > -1) {
+            array = (T[]) new Object[firstSize];
+        }
+        else {array = (T[])new Object[DEFAULT_SIZE];}
     }
 
     public int size(){
@@ -39,11 +45,28 @@ public class DynamicArray <T> {
         if (newSize < 0){throwException();}
         T[] newArray = array.clone();
         array = (T[])new Object[newSize];
-        for(int i = 0; i < newSize; i++){
-            array[i] = newArray[i];
+        for(int i = 0; i < newSize; i++) {
+            for (int i = 0; i < Math.min(newSize, newArray.length); i++) {
+                array[i] = newArray[i];
+            }
         }
     }
-    
+    public int findFirst(T value){
+        for(int i = 0; i < capacity(); i++){
+            if(array[i] == value){
+                return i;
+            }
+        }
+        return -1;
+    }
 
+    public int findLast(T value){
+        for(int i = capacity() - 1; i > -1; i--){
+            if(array[i] == value){
+                return i;
+            }
+        }
+        return -1;
+    }
 
 }
