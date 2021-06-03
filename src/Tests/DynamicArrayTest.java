@@ -18,6 +18,7 @@ public class DynamicArrayTest extends Assertions {
         dynamicArray.resize(1);
         assertEquals(1, dynamicArray.size());
     }
+
     @Test
     public void TestSetAndGet(){
         DynamicArray dynamicArray = new DynamicArray();
@@ -25,5 +26,16 @@ public class DynamicArrayTest extends Assertions {
         dynamicArray.set(0, 5);
         assertEquals(5, dynamicArray.get(0));
     }
-    
+
+    @Test
+    public void TestResize(){
+        DynamicArray dynamicArray = new DynamicArray();
+        assertThrows(ArithmeticException.class, () -> dynamicArray.resize(-1));
+    }
+
+    @Test
+    public void TestGet(){
+        DynamicArray dynamicArray = new DynamicArray();
+        assertThrows(ArithmeticException.class, () -> dynamicArray.resize(-1));
+    }
 }
