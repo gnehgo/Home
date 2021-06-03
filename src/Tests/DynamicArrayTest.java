@@ -116,7 +116,18 @@ public class DynamicArrayTest extends Assertions {
         assertEquals(8, dynamicArray.size());
         assertNull(dynamicArray.get(7));
     }
-
+    @Test
+    public void TestDelete(){
+        DynamicArray dynamicArray = new DynamicArray(3);
+        dynamicArray.set(0, 5);
+        dynamicArray.set(2, 5);
+        dynamicArray.delete(2);
+        assertNull(dynamicArray.get(2));
+        assertEquals(3, dynamicArray.capacity());
+        assertEquals(1, dynamicArray.size());
+        assertThrows(ArithmeticException.class, () -> dynamicArray.delete(-1));
+        assertThrows(ArithmeticException.class, () -> dynamicArray.delete(100));
+    }
 
 }
 
