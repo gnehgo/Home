@@ -13,4 +13,7 @@ public class DoubleLinkedListElement <L> {
 
     }
 
+    public DoubleLinkedListElement(DoubleLinkedListElement<L> prev, L y, DoubleLinkedListElement<L> current) {
+    }
+
 }
