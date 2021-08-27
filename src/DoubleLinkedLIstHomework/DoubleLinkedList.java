@@ -16,6 +16,9 @@ public class DoubleLinkedList <L> {
     public int size(){
         return size;
     }
+    public boolean isEmpty() {
+        return size == 0;
+    }
         public void addFirst(L data) {
             DoubleLinkedListElement tmp = new DoubleLinkedListElement(data, head, null);
             if(head != null ) {
