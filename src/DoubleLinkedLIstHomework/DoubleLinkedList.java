@@ -46,5 +46,21 @@ public class DoubleLinkedList <L> {
     private void throwsException(){
         throw new ArithmeticException();
     }
+    public void addBefore (L x, L y){
+        if (isEmpty())
+            throw new ArithmeticException(x.toString());
+        DoubleLinkedListElement<L> current = head;
+        while (current != null && !current.data.equals(x))
+            current = current.next;
+        if (current == null)
+            throw new ArithmeticException(x.toString());
+        DoubleLinkedListElement<L> tmp = new DoubleLinkedListElement<L>(current.prev, y, current);
+        if (current.prev != null)
+            current.prev.next = tmp;
+        else head = tmp;
+        current.prev = tmp;
 
+        size++;
+    }
+    
 }
