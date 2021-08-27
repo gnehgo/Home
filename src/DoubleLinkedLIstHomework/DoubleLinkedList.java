@@ -9,7 +9,9 @@ public class DoubleLinkedList <L> {
     public DoubleLinkedList() {
 
         head = null;
-        tail = null;}
+        tail = null;
+        size = 0;
+    }
         public void addFirst(L data) {
             DoubleLinkedListElement tmp = new DoubleLinkedListElement(data, head, null);
             if(head != null ) {
