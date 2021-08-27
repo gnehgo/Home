@@ -12,6 +12,10 @@ public class DoubleLinkedList <L> {
         tail = null;
         size = 0;
     }
+
+    public int size(){
+        return size;
+    }
         public void addFirst(L data) {
             DoubleLinkedListElement tmp = new DoubleLinkedListElement(data, head, null);
             if(head != null ) {
