@@ -2,8 +2,8 @@ package DoubleLinkedLIstHomework;
 
 public class DoubleLinkedList <L> {
 
-    private DoubleLinkedList<L> head;
-    private DoubleLinkedList<L> tail;
+    private DoubleLinkedListElement head;
+    private DoubleLinkedListElement tail;
 
     public DoubleLinkedList() {
 
