@@ -33,5 +33,4 @@ public class DoubleLinkedListElement <L> {
         return data;
     }
 
-
 }
