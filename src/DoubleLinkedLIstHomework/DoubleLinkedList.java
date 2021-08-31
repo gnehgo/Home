@@ -129,6 +129,9 @@ public class DoubleLinkedList <L> {
             System.out.println("Element not found");
     }
 
+    public DoubleLinkedListElement<L> getTail(){
+        return tail;
+    }
 
     public DoubleLinkedListElement<L> getHead(){
         return head;
