@@ -6,6 +6,18 @@ public class DoubleLinkedList <L> {
     private DoubleLinkedListElement tail;
     private int size;
 
+    public L getData(int number){
+        if (number < 0 || number > size) {
+            throw new RuntimeException();
+        }
+        DoubleLinkedListElement<L> counter = head;
+        for (int currData = 0; currData < number; currData++){
+            counter = counter.getNextElement();
+        }
+        return counter.data;
+    }
+
+
     public DoubleLinkedList() {
 
         head = null;
@@ -116,14 +128,11 @@ public class DoubleLinkedList <L> {
         else
             System.out.println("Element not found");
     }
-
-    public DoubleLinkedListElement<L> addTail(){
-        return tail;
-    }
+    
 
     public DoubleLinkedListElement<L> getHead(){
         return head;
     }
-    
+
 }
 
