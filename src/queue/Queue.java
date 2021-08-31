@@ -30,4 +30,5 @@ public class Queue {
     public void printAll(){
         doublelist.printAll();
     }
+
 }
