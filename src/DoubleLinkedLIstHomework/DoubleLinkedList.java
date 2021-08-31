@@ -6,8 +6,8 @@ public class DoubleLinkedList <L> {
     private DoubleLinkedListElement tail;
     private int size;
     public static String outOfRangeError = "out of range";
-
-
+    public static String listIsEmptyError = "list is empty";
+    
     public L getData(int number){
         if (number < 0 || number > size) {
             throw new RuntimeException();
@@ -165,6 +165,21 @@ public class DoubleLinkedList <L> {
 
     public DoubleLinkedListElement<L> getHead(){
         return head;
+    }
+
+
+    public void printAll() {
+        if (isEmpty()){
+            throw new RuntimeException(listIsEmptyError);
+        }
+        DoubleLinkedListElement counter = head;
+        counter.setNextElement(head.getNextElement());
+
+        while (counter.getNextElement() != null){
+            System.out.println(counter.getData() + " ");
+            counter = counter.getNextElement();
+        }
+        System.out.println(counter.getData());
     }
 
 }
