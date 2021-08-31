@@ -42,7 +42,7 @@ public class DoubleLinkedList <L> {
             }
             size++;
         }
-    public void addLast(L data) {
+    public void addTail(L data) {
 
         DoubleLinkedListElement tmp = new DoubleLinkedListElement(data, null, tail);
         if(tail != null) {
@@ -128,7 +128,7 @@ public class DoubleLinkedList <L> {
         else
             System.out.println("Element not found");
     }
-    
+
 
     public DoubleLinkedListElement<L> getHead(){
         return head;
