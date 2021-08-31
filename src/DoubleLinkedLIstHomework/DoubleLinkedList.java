@@ -182,5 +182,8 @@ public class DoubleLinkedList <L> {
         System.out.println(counter.getData());
     }
 
+    public DoubleLinkedListElement getElementByNumber() {
+        return null;
+    }
 }
 

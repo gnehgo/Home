@@ -21,4 +21,13 @@ public class Queue {
     }
 
 
+    public void dequeue() {
+        DoubleLinkedListElement elementToSet = doublelist.getElementByNumber();
+        doublelist.setElementByNumber(0, elementToSet);
+        size--;
+    }
+
+    public void printAll(){
+        doublelist.printAll();
+    }
 }
