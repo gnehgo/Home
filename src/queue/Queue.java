@@ -15,6 +15,10 @@ public class Queue {
     public Object peek(){
         return doublelist.getHead().getData();
     }
+    public void enqueue(int data){
+        doublelist.addTail(data);
+        size = size + 1;
+    }
 
 
 }
