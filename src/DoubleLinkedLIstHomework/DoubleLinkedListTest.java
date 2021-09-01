@@ -35,4 +35,5 @@ package DoubleLinkedLIstHomework;
                 Assertions.assertEquals(3, doublelist.getData(3));
             }
 
-            }
+        }
+//      
