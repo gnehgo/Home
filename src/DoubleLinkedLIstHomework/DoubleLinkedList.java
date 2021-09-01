@@ -185,5 +185,6 @@ public class DoubleLinkedList <L> {
     public DoubleLinkedListElement getElementByNumber() {
         return null;
     }
+
 }
 
