@@ -34,3 +34,4 @@ public class NLogNSort {
         array[index2] = temp;
     }
 }
+

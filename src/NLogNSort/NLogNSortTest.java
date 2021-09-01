@@ -65,3 +65,4 @@ public class NLogNSortTest extends Assertions {
         assertArrayEquals(expected, actual);
     }
 }
+
