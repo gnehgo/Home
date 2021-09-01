@@ -18,7 +18,7 @@ public class QuadraticSort {
                     sorted = false;
                 }
             }
-
         }
     }
 }
+

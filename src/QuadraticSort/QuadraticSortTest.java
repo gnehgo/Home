@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 public class QuadraticSortTest  extends Assertions{
-    
+
     @Test
     public void sort_emptyArray_doNothing()
     {
@@ -67,3 +67,4 @@ public class QuadraticSortTest  extends Assertions{
         assertArrayEquals(expected, actual);
     }
 }
+
