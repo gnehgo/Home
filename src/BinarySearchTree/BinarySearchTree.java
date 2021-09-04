@@ -23,7 +23,7 @@ public class BinarySearchTree {
     public Item search(String key) {
         return searchRec(key, root);
     }
-    
+
     public Item min() {
         Item node = root;
         while (node.leftChild != null) {
@@ -38,6 +38,34 @@ public class BinarySearchTree {
             node = node.rightChild;
         }
         return node;
+    }
+
+    public Item successor(Item input) {
+
+        boolean rightChildExists = input.rightChild != null;
+        if (rightChildExists) {
+            input = input.rightChild;
+
+            boolean leftChildExists = input.leftChild != null;
+            while (leftChildExists) {
+                input = input.leftChild;
+                leftChildExists = input.leftChild != null;
+            }
+            return input;
+        }
+
+        else {
+            boolean parentExists = input.parent != null;
+            while (parentExists) {
+                if (input.parent.leftChild == input) {
+                    return input.parent;
+                } else {
+                    input = input.parent;
+                }
+                parentExists = input.parent != null;
+            }
+        }
+        throw new RuntimeException(NOT_FOUND_ERROR);
     }
 
     private Item searchRec(String key, Item node) {
