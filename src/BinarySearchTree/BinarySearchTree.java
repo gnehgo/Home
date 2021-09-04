@@ -2,6 +2,7 @@ package BinarySearchTree;
 
 public class BinarySearchTree {
     Item root;
+    String NOT_FOUND_ERROR = "Not found";
 
     public BinarySearchTree() {
         root = new Item();
@@ -17,6 +18,27 @@ public class BinarySearchTree {
             return;
         }
         insertRec(key, root);
+    }
+
+    public Item search(String key) {
+        return searchRec(key, root);
+    }
+
+    private Item searchRec(String key, Item node) {
+        if (node == null) {
+            throw new RuntimeException(NOT_FOUND_ERROR);
+        }
+
+        if (key.equals(node.key)) {
+            return node;
+        }
+
+        boolean toLeftChild = key.compareTo(node.key) < 0;
+        if (toLeftChild) {
+            return searchRec(key, node.leftChild);
+        } else {
+            return searchRec(key, node.rightChild);
+        }
     }
 
     private void insertRec(String key, Item node) {
