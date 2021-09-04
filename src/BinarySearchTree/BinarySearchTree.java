@@ -23,10 +23,19 @@ public class BinarySearchTree {
     public Item search(String key) {
         return searchRec(key, root);
     }
+    
     public Item min() {
         Item node = root;
         while (node.leftChild != null) {
             node = node.leftChild;
+        }
+        return node;
+    }
+
+    public Item max() {
+        Item node = root;
+        while (node.rightChild != null) {
+            node = node.rightChild;
         }
         return node;
     }
@@ -49,7 +58,7 @@ public class BinarySearchTree {
     }
 
     private void insertRec(String key, Item node) {
-        
+
         if (key.compareTo(node.key) < 0) {
             if (node.leftChild != null) {
                 insertRec(key, node.leftChild);
